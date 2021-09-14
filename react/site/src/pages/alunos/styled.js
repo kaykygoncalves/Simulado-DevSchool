@@ -261,6 +261,18 @@ const Container = styled.div`
         width: .1em;
     }
 
+    .coluna-acao > button{
+        visibility: hidden;
+    }
+
+    tr: hover{
+
+        .coluna-acao > button{
+            visibility: visible;
+        }
+
+    }
+
     button {
         cursor: pointer;
     }
@@ -300,6 +312,10 @@ const Container = styled.div`
         border-radius: 50%;
         height: 57px;
         
+    }
+
+    .linha-alternada {
+        background-color: #fff;
     }
 `
 

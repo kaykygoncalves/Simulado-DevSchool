@@ -1,7 +1,6 @@
 import styled from 'styled-components'
 
 const Container = styled.div`
-
     .reader-right-box {
         display: flex;
         flex-direction: row;
@@ -10,20 +9,13 @@ const Container = styled.div`
         align-items: center;
         justify-content: space-between;
     }
-
     .user-name  {
         padding-left: 1em;
         font-size: 16px;
     }
-
     .user-name b {
         color: #4a4a4a;
     }
-
-
-
-
-
     .left-button button {
         border-radius: 50%;
         background-color: #986CDF;
@@ -32,7 +24,6 @@ const Container = styled.div`
         border: none;
         margin: .4em;
     }
-
     .refresh-button button {
         border-radius: 50%;
         background-color: #986CDF;
@@ -42,21 +33,16 @@ const Container = styled.div`
         margin: .4em;
         
     }
-
-
-
     .box-image {
         display: flex;
         flex-direction: row;
         padding: 0.5em;
     }
-
     .box-user {
         display: flex;
         flex-direction: row;
         align-items: center;
     }
-
     .bottom-bar-right-header {
         border-bottom: .5px solid #e9e9e9;
         width: 97%;
