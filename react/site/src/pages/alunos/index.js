@@ -1,14 +1,8 @@
 import Cabecalho from '../../components/cabecalho'
 import Menu from '../../components/menu'
 
-import React from 'react';
-import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
-
 import { confirmAlert } from 'react-confirm-alert';
 import 'react-confirm-alert/src/react-confirm-alert.css';
-
-import LoadingBar from 'react-top-loading-bar'
 
 import { Container, Conteudo } from './styled'
 
