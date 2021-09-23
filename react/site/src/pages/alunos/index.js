@@ -1,8 +1,14 @@
 import Cabecalho from '../../components/cabecalho'
 import Menu from '../../components/menu'
 
+import React, { useRef } from 'react';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 import { confirmAlert } from 'react-confirm-alert';
 import 'react-confirm-alert/src/react-confirm-alert.css';
+
+import LoadingBar from 'react-top-loading-bar'
 
 import { Container, Conteudo } from './styled'
 
@@ -19,6 +25,7 @@ export default function Index() {
     const [turma, setTurma] = useState('');
     const [curso, setCurso] = useState('');
     const [idAlterando, setIdAlterando] = useState(0);
+    const loading = useRef(null);
 
     async function listar() {
         let r = await api.listar();
@@ -28,21 +35,24 @@ export default function Index() {
     async function inserir() {
 
         if (idAlterando === 0) {
+
+            loading.current.continuousStart();
             let r = await api.inserir(nome, chamada, curso, turma);
             
             if (r.erro)
-                alert (r.erro)
+                toast (r.erro)
             else   
-                alert ('Aluno Inserido!')
+                toast ('Aluno Inserido!')
         } else {
             let r = await api.alterar(idAlterando, nome, chamada, curso, turma);
             if (r.erro)
-                alert (r.erro)
+                toast (r.erro)
             else 
-                alert ('Aluno Alterado!')
+                toast ('Aluno Alterado!')
 
         }
 
+        loading.current.complete();
         limparCampos();
         listar();
     }
@@ -94,6 +104,8 @@ export default function Index() {
 
     return (
         <Container>
+            <ToastContainer />
+            <LoadingBar color="purple" ref={loading}/>
             <Menu />
             <Conteudo>
                 <Cabecalho />
